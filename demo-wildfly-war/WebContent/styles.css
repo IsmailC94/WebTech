@@ -1,0 +1,216 @@
+/* DROP-DOWN-MENU später noch mit JAVASCRIPT MACHEN!!!!!!!!!!!!! */
+/* media queries später noch mit Java Script machen!! */
+
+/* === GLOBAL === */
+
+html {
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  font-family: 'Raleway', 'Lato', 'Helvetica Neue', 'Arial', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* === GENERELLES === */
+
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+/* === Navigationsleiste === */
+
+.header-nav {
+  width: 100%;
+  /* background-color: #3D3F45; */
+  position: relative;
+  font-size: 1.5rem;
+  /* font-weight: bold;
+  font-size: 1.1rem; */
+}
+
+/* === Navigationsleiste Vorbereitung === */
+
+/* Alle li-Elementen in den ul's bekommen inline-block; */
+.header-nav ul > li {
+ display: inline-block;
+ margin-left: .4rem;
+ /* height: 100%;  */
+ padding: 0 .4rem 0 .4rem;
+}
+
+/* === container für die Platzierung === */
+.genderLinks,
+.NaviSeitenlogo,
+.Suchleiste,
+.navigationsKategorien {
+  float: left;
+  position: relative;
+  left: 50%;
+}
+
+/* === ul's für die Platzierung === */
+ .header-nav .genderLinks > ul
+ {
+  padding: 0;
+  float: left;
+  position: relative;
+  left: -50%;
+}
+
+.header-nav .NaviSeitenlogo > ul {
+ float: left;
+ position: relative;
+ left: -50%;
+ margin: 0;
+}
+
+.header-nav .Suchleiste ul {
+  float: left;
+  position: relative;
+  left: -50%;
+  margin: 0;
+}
+
+.navigationsKategorien > ul {
+  margin: 0;
+  float: left;
+  position: relative;
+  left: -50%;
+  /* padding: 1.5rem .7rem 0 .4rem; */
+}
+
+/* === Navigationsleiste: Platzierung der Elemente === */
+
+/* --- row 1, col 1 --- */
+
+.header-nav .NaviSeitenlogo ul > li > a > img {
+  height: 3rem;
+  width: auto;
+  margin: 10px;
+  /* margin-top: 4rem; */
+}
+
+/* --- row 1, col 3 --- siehe oben */
+
+/* --- row 1, col 3 --- */
+
+.header-nav .Suchleiste ul > li > img {
+  height: 3rem;
+  width: auto;
+  margin: 10px;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+/* --- row 2 --- siehe oben */
+
+/* --- Links stylen --- */
+.header-nav ul > li > a:link {
+  color: black;
+  text-decoration: none;
+}
+
+.header-nav ul > li > a:hover {
+  color: pink;
+  text-decoration: none;
+}
+
+/* .header-nav ul > li > a:active {
+  color: #E5E5E5;
+  text-decoration: none;
+
+} */
+
+.header-nav ul > li > a:visited {
+  color: black;
+  text-decoration-color: black;
+}
+
+/* --- Grauer Hintergrund auf den Links --- */
+
+.active {
+  background-color: grey;
+}
+
+/* === Navigationsleiste (MOBIL) === */
+
+/* === GRID-SYSTEM == */
+
+.container {
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+/* Selektor, der alle Columns addressiert. Er wählt alle Klassen aus, welche das Wort "col-"
+beinhalten
+ Die Columns sind aktuell noch übereinander, bzw. halt nicht nebeneinander. Das leigt daran, dass
+ die Columns aktuell eine Höhe von 0 haben. Wenn sie keine Höhe haben, müssen sie sich gegenseitig auch
+ nicht beachten und müssen nicht wie normale floats nebeneinander floaten
+*/
+
+[class*='col-'] {
+  float: left;
+  min-height: 1px;
+  padding: .8rem;
+}
+
+.col-1 {
+  width: 16.666%;
+  height: 100%;
+  padding: 0 0 0 0;
+
+}
+.col-2 {
+  width: 33.333%;
+  height: 100%;
+  padding: 0 0 0 0;
+  position: relative;
+}
+.col-3 { width: 50%;
+}
+.col-6 {
+ width: 100%;
+ height: 100%;
+ padding: 0 0 0 0;
+ position: relative;
+}
+
+/* === WICHTIGE BREAKPOINTS ===
+
+320 Pixel (iPhone Hochformat)
+480 Pixel (iPhone Querformat)
+768 Pixel (iPad Hochformat)
+1024 Pixel (iPad Querformat)
+1200 Pixel (Laptop)
+>1200 Pixel (große Endgeräte) */
+
+@media (max-width: 1024px) {
+  .col-2 { width: 33.333%;}
+  .col-6 { width: 100%}
+}
+
+@media (max-width: 768px) {
+  .col-1 { width: 50%;}
+  .col-2 { width: 100%; }
+  .col-6 { width: 50%; }
+}
+
+@media (max-width: 480px) {
+  .col-1 { width: 100%; }
+  .col-2 { width: 100%; }
+  .col-3 { width: 100%; }
+}
