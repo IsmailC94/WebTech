@@ -7,18 +7,22 @@
 <body>
 <form action="kontaktformular.html">
 
+<p>Anrede</p>
+<input type="Radio" name="anrede" id="r1" value="Herr" checked=true>
+<label for="r1">Herr</label>
+<input type="Radio" name="anrede" id="r2" value="Frau">
+<label for="r2">Frau</label><br>
 
-<p>
-<select multiple name="anrede" size="2">
-<option value="val1">Herr</option>
-<option value="val2">Frau</option>
-
-</select></p>
 <p>Ihr Vorname:<br><input type="text" name="vorname"  size="30" maxlength="40"></p>
 <p>Ihr Ihr Nachname:<br><input type="text" name="nachname"  size="30" maxlength="40"></p>
 <p> Ihre Nachricht an uns:<br>
-<textarea name="eingabe" rows="10" cols="50"></textarea>
+<textarea name="eingabe" rows="15" cols="70"></textarea>
 </p>
+<b><p> Falls es sich um einen bestellten Artikel handelt, füge Sie eine Rechnung an.</p></b>
+<form method="post" enctype="multipart/form-data">
+<p>Datei auswählen:
+<input type="file" name="bild" accept="image/*"><br><br>
+
 
 <button type="submit" name="absenden" value="submit">Absenden</button>
 
