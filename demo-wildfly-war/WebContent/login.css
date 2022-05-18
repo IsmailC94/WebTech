@@ -1,29 +1,28 @@
-
 html {
-  
-  
+
+
 }
 
 body {
-	margin:0;
+    margin:0;
 }
 
 .gg-user {
 font-size: 80px;
 ueberschrift{
-	font-size: 200px;
+    font-size: 200px;
 }
 
 
 .ueberschrift{
-	
-	
+
+
 }
 
 h1{
-	font-size: 5px;
+    font-size: 5px;
 }
-/* Dropdown Content (Hidden by Default) */
+/* Dropdown Content (Hidden by Default) /
 .dropdown-content {
   display: none;
   position: absolute;
@@ -34,13 +33,13 @@ h1{
 }
 
 
-/* Change color of dropdown links on hover */
+/ Change color of dropdown links on hover /
 .dropdown-content a:hover {background-color: #ddd;}
 
-/* Show the dropdown menu on hover */
+/ Show the dropdown menu on hover /
 .dropdown:hover .dropdown-content {display: block;}
 
-/* Change the background color of the dropdown button when the dropdown content is shown */
+/ Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {background-color: #3e8e41;}
 .width: 100%;
 
