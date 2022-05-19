@@ -7,8 +7,9 @@ public class Product implements Serializable {
 	
 	private Long ProduktNr;
 	private String productname;
-	private Double Produktpreis;
+	private Double preis;
 	private Integer ArtikelGrp;
+	private Integer Menge;
 	
 	public Long getId() {
 		return ProduktNr;
@@ -27,11 +28,11 @@ public class Product implements Serializable {
 	}
 	
 	public Double getPreis() {
-		return Produktpreis;
+		return preis;
 	}
 	
-	public void getPreis(Double Produktpreis) {
-		this.Produktpreis = Produktpreis;
+	public void setPreis(Double preis) {
+		this.preis = preis;
 	}
 	
 	public Integer getArtikelGrp() {
@@ -40,5 +41,13 @@ public class Product implements Serializable {
 	
 	public void setArtikelGrp(Integer ArtikelGrp) {
 		this.ArtikelGrp = ArtikelGrp;
+	}
+	
+	public Integer getMenge() {
+		return Menge;
+	}
+	
+	public void setMenge(Integer Menge) {
+		this.Menge = Menge;
 	}
 }

@@ -31,25 +31,11 @@ public class createServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		Product form = new Product();
+		form.setId(Long.valueOf(request.getParameter("ProduktNr")));
 		form.setProductname(request.getParameter("productname"));
-		form.setQuantity(Integer.valueOf(request.getParameter("quantity")));
-		
-		
-		String dateString = request.getParameter("proddate");
-		String[] dateArray = dateString.split("-");
-		Calendar cal = Calendar.getInstance();
-		int year = Integer.parseInt(dateArray[0]);
-		int month = Integer.parseInt(dateArray[1])-1;
-		int day = Integer.parseInt(dateArray[2]);
-		cal.set(year, month, day);
-		form.setProddate(cal.getTime());
-		
-		String timeString = request.getParameter("prodtime");
-		String[] timeArray = timeString.split(":");
-		cal.set(year, month, day, Integer.parseInt(timeArray[0]), Integer.parseInt(timeArray[1]));
-		form.setProdtime(cal.getTime());
-		
-		persist(form);
+		form.setMenge(Integer.valueOf(request.getParameter("Menge")));
+		form.setArtikelGrp(Integer.valueOf(request.getParameter("ArtikelGrp")));
+		form.setPreis(Double.valueOf(request.getParameter("preis")));
 		
 		request.setAttribute("form", form);
 		
@@ -61,29 +47,6 @@ public class createServlet extends HttpServlet {
         super();
         // TODO Auto-generated constructor stub
     }
-    
-	private void persist(Product form) throws ServletException {
-		String[] generatedKeys = new String[] {"id"};
-		
-		try (Connection con = ds.getConnection();
-			PreparedStatement pstmt = con.prepareStatement(
-					"INSERT INTO products (productname,quantity,proddate,prodtime) VALUES (?,?,?,?)", 
-					generatedKeys)){
-
-			pstmt.setString(1, form.getProductname());
-			pstmt.setInt(2, form.getQuantity());
-			pstmt.setDate(3, new java.sql.Date(form.getProddate().getTime()));
-			pstmt.setTime(4, new java.sql.Time(form.getProdtime().getTime()));
-			pstmt.executeUpdate();
-			
-			ResultSet rs = pstmt.getGeneratedKeys();
-			while (rs.next()) {
-				form.setId(rs.getLong(1));
-			}
-		} catch (Exception ex) {
-			throw new ServletException(ex.getMessage());
-		}
-	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
