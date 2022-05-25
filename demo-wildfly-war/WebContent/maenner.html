@@ -9,6 +9,11 @@
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&family=Raleway:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+         <link href='https://css.gg/user.css' rel='stylesheet'>
+	<link href='https://css.gg/search.css' rel='stylesheet'>
+	<link href='https://css.gg/shopping-cart.css' rel='stylesheet'>
+	<link rel="stylesheet" href="login.css">
 	</head>
 
 	<body>
@@ -21,9 +26,7 @@
 								<div class="col-2">
 									<div class="genderLinks">
 										<ul>
-											<li><a href="index.html">Frauen</a></li>
-											<li class="active"><a href="maenner.html">Männer</a></li>
-											<li><a href="kinder.html">Kinder</a></li>
+											
 										</ul>
 									</div>
 								</div>
@@ -42,9 +45,41 @@
 								<div class="Suchleiste">
 										<ul>
 								
-										<li><img src="img/searchButton.png" alt = "Suchleiste"></li>
-										<li><img src="img/shopping-basket.png" alt= "Einkaufwagen"></li>
-										<li><img src="img/profil.png" alt= "Dein Profil"></li>
+																		
+		<!-- DROPDOWN VOM SEARCH-ICON -->
+										<li> <div class="dropdown">
+  <button class="searchbtn"><i class="gg-search"></i></button>
+  <div class="dropdown-content">
+  <a><font size=3>Produkte suchen:</font></a>
+   <input type="text" name="spind" value="">
+  </div>
+</div></li>
+
+<!-- DROPDOWN VOM EINKAUFSWAGEN -->
+
+
+<li><div class="dropdown">
+  <button class="shoppingcart"><i class="gg-shopping-cart"></i></button>
+  <div class="dropdown-content">
+  <a><font size=1>Ihre ausgesuchten Artikel:</font></a>
+ 
+  </div>
+</div></li>
+
+
+<!-- DROPDOWN VOM USER-ICON -->
+
+				<li><div class="dropdown">
+  <button class="profilbtn"><i class="gg-user"></i></button>
+  <div class="dropdown-content">
+  <a><font size=4>Anmelden:</font></a>
+   <center></form><input class="loginname" type="text" name="Benutzername" placeholder="Benutzername" size=15 maxlength=40></center>
+     <center></form><input class="loginpasswort" type="text" name="Passwort" placeholder="Passwort" size=15 maxlength=40></center>
+    
+    <a href="#"><font size=2>Passwort vergessen?</font></a>
+    <a href="registrierung.html"><font size=2>Noch kein Mitglied? Jetzt registrieren!</font></a>
+  </div>
+</div></li>						
 										</ul>
 								</div>
 							</div>
@@ -55,31 +90,66 @@
 							<div class="col-6">
 								<nav class="navigationsKategorien">
 									<ul>
-										<li><a href="drops.html">Drops</a></li>
-										<li><a href="bekleidung.html">Bekleidung</a></li>
+										<li><a href="frauen.html">Frauen</a></li>
+										<li class="active"><a href="maenner.html">Männer</a></li>
+											<li><a href="kinder.html">Kinder</a></li>
 										<li><a href="schuhe.html">Schuhe</a></li>
 										<li><a href="sport.html">Sport</a></li>
 										<li><a href="accessoires.html">Accessoires</a></li>
-										<li><a href="premium.html">Premium</a></li>
+											<li><a href="premium.html">Premium</a></li>
 										<li><a href="beauty.html">Beauty</a></li>
 										<li><a href="sale.html">Sale</a></li>
-										<li><a href="kontakt.html">Support</a></li>
+										
 									</ul>
 								</nav>
 							</div>
 						</div>
 			</div>
+			
+			<table class="sales" width=100% height=100%>
+            <br>
+            </br>
+            <p>
+            <center>
+               Herrenmode
+            </center>
+            <br>
+            </br>
+            </p>
+
+            <tr>
+                <td><figure><img src="img/Damenjeans.jpg" width="200"
+                    height="200" alt="Damenjeans"> 
+                    </figure> <figurecaption> Damenjeans für 24,99€</figurecaption></td>
+                <td><figure><img src="img/Damenjacke.jpg" width="200"
+                    height="200" alt="Damenjacke">
+                    </figure><figurecaption> Damenjacke für 39,99€ </figurecaption></td>
+               
+            </tr>
+            <tr>
+              <!--    <td>"Bild einfügen"</td>
+                <td>"Bild einfügen"</td>
+                <td>"Bild einfügen"</td>
+                -->
+                
+
+
+</table>
+			
+			
+<ul class="list-unstyled-links">
+<li><a href="ueberUns.html">Über uns</a></li>
+<li><a href="karriere.html">Karriere</a></li>
+<li><a href="kontakt.html">Kontakt</a></li>
+<li><a href="termsAndConditions.html">Terms &amp; Conditions</a></li>
+<li><a href="privatsphaere.html">Privatsphäre</a></li>
+<li><a href="impressum.html">Impressum</a></li>
+
+</ul>
+
+
 
     </header>
-
-
-
-
-
-
-
-
-
 	</body>
 
 </html>

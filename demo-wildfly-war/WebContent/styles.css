@@ -18,17 +18,8 @@ body {
 }
 
 /* === GENERELLES === */
-.profilbtn {
-	background-color: #FFFFFF; 
 
-	height:50px;
-	width:50px;
-	font-size:50px;
-}
  
-.gg-user {
- font-size: 100px;
-}
 
 .loginname{
 	
@@ -67,14 +58,11 @@ body {
   display: block;
 }
 
-/* Change color of dropdown links on hover */
+
 .dropdown-content a:hover {background-color: #ddd;}
-
-/* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {display: block;}
-
-/* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {background-color: #3e8e41;}
+
 .clearfix::after {
   content: "";
   display: block;
@@ -91,7 +79,12 @@ body {
   /* font-weight: bold;
   font-size: 1.1rem; */
 }
-
+.list-unstyled-links{
+	osition: fixed;
+    bottom: 0;
+    width: 100%;
+	
+}
 /* === Navigationsleiste Vorbereitung === */
 
 /* Alle li-Elementen in den ul's bekommen inline-block; */
