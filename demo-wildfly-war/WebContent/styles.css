@@ -134,6 +134,11 @@ body {
   margin: 0;
 }
 
+.regForm  {
+    min-width: 6em;
+    display: inline-block;
+
+    }
 
 
 .navigationsKategorien > ul {
