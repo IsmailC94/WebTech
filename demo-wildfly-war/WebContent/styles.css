@@ -1,5 +1,5 @@
-/* DROP-DOWN-MENU später noch mit JAVASCRIPT MACHEN!!!!!!!!!!!!! */
-/* media queries später noch mit Java Script machen!! */
+/* DROP-DOWN-MENU spÃ¤ter noch mit JAVASCRIPT MACHEN!!!!!!!!!!!!! */
+/* media queries spÃ¤ter noch mit Java Script machen!! */
 
 /* === GLOBAL === */
 
@@ -10,6 +10,7 @@ html {
 body {
   margin: 0;
   font-family: 'Raleway', 'Lato', 'Helvetica Neue', 'Arial', sans-serif;
+  
 }
 
 * {
@@ -17,6 +18,50 @@ body {
 }
 
 /* === GENERELLES === */
+
+ 
+
+.loginname{
+	
+}
+/* Dropdown Button */
+.dropbtn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  position:center;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+
+.dropdown-content a:hover {background-color: #ddd;}
+.dropdown:hover .dropdown-content {display: block;}
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
 
 .clearfix::after {
   content: "";
@@ -34,7 +79,12 @@ body {
   /* font-weight: bold;
   font-size: 1.1rem; */
 }
-
+.list-unstyled-links{
+	osition: fixed;
+    bottom: 0;
+    width: 100%;
+	
+}
 /* === Navigationsleiste Vorbereitung === */
 
 /* Alle li-Elementen in den ul's bekommen inline-block; */
@@ -45,7 +95,7 @@ body {
  padding: 0 .4rem 0 .4rem;
 }
 
-/* === container für die Platzierung === */
+/* === container fÃ¼r die Platzierung === */
 .genderLinks,
 .NaviSeitenlogo,
 .Suchleiste,
@@ -54,8 +104,14 @@ body {
   position: relative;
   left: 50%;
 }
+.regFormular{
+	position: center;
+	text-align: center;
+	
+}
 
-/* === ul's für die Platzierung === */
+
+/* === ul's fÃ¼r die Platzierung === */
  .header-nav .genderLinks > ul
  {
   padding: 0;
@@ -77,6 +133,13 @@ body {
   left: -50%;
   margin: 0;
 }
+
+.regForm  {
+    min-width: 6em;
+    display: inline-block;
+
+    }
+
 
 .navigationsKategorien > ul {
   margin: 0;
@@ -155,11 +218,11 @@ body {
   display: block;
 }
 
-/* Selektor, der alle Columns addressiert. Er wählt alle Klassen aus, welche das Wort "col-"
+/* Selektor, der alle Columns addressiert. Er wÃ¤hlt alle Klassen aus, welche das Wort "col-"
 beinhalten
- Die Columns sind aktuell noch übereinander, bzw. halt nicht nebeneinander. Das leigt daran, dass
- die Columns aktuell eine Höhe von 0 haben. Wenn sie keine Höhe haben, müssen sie sich gegenseitig auch
- nicht beachten und müssen nicht wie normale floats nebeneinander floaten
+ Die Columns sind aktuell noch Ã¼bereinander, bzw. halt nicht nebeneinander. Das leigt daran, dass
+ die Columns aktuell eine HÃ¶he von 0 haben. Wenn sie keine HÃ¶he haben, mÃ¼ssen sie sich gegenseitig auch
+ nicht beachten und mÃ¼ssen nicht wie normale floats nebeneinander floaten
 */
 
 [class*='col-'] {
@@ -196,7 +259,7 @@ beinhalten
 768 Pixel (iPad Hochformat)
 1024 Pixel (iPad Querformat)
 1200 Pixel (Laptop)
->1200 Pixel (große Endgeräte) */
+>1200 Pixel (groÃŸe EndgerÃ¤te) */
 
 @media (max-width: 1024px) {
   .col-2 { width: 33.333%;}
@@ -213,4 +276,5 @@ beinhalten
   .col-1 { width: 100%; }
   .col-2 { width: 100%; }
   .col-3 { width: 100%; }
+  
 }
