@@ -20,7 +20,7 @@ import jakarta.servlet.http.HttpServletResponse;
  * Servlet implementation class createServlet
  */
 @WebServlet(name = "createServlet", urlPatterns = {"/createServlet"})
-public class createServlet extends HttpServlet {
+public class createProductServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	@Resource(lookup = "java:jboss/datasources/ingoshop")
@@ -43,7 +43,7 @@ public class createServlet extends HttpServlet {
 		dispatcher.forward(request, response);
 	}	
 	
-    public createServlet() {
+    public createProductServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
