@@ -33,15 +33,21 @@ public class ErstelleKunde extends HttpServlet {
 			throws ServletException, IOException {
 	
 		request.setCharacterEncoding("UTF-8"); // 
-		ErstelleKunde form = new ErstelleKunde();
+		ErstelleKundeBean form = new ErstelleKundeBean();
 
 		
-		form.setVorname(request.getParameter("vorname"));
-		form.setNachname(request.getParameter("nachname"));
-		form.setUsername(request.getParameter("username"));
-		form.setPasswort(request.getParameter("password"));
 		form.setEmail(request.getParameter("email"));
-		form.setTelefon(Long.valueOf(request.getParameter("telefon")));
+		form.setGeschl(request.getParameter("geschlecht"));
+		form.setGebDatum(request.getParameter("gebDatum"));
+		form.setPLZ(request.getParameter("plz"));
+		form.setOrt(request.getParameter("ort"));
+		form.setHausNr(Integer.valueOf("hausNr"));
+		form.setStr(request.getParameter("strasse"));
+		form.setVorname(request.getParameter("vorname"));
+		form.setFamName(request.getParameter("nachname"));
+		form.setKdNr(Integer.valueOf("kundennummer"));
+		form.setPasswort(request.getParameter("password"));
+		
 
 		
 uebertragung(form);
@@ -56,8 +62,8 @@ uebertragung(form);
 	// Dieser String wird in die DB eingefügt
 	private void persist(ErstelleKunde form) throws ServletException {
 	String eingabe = " insert into users (Email, FamName, Geburtsdatum, Geschlecht, Hausnummer, Ort, PLZ, Straße, Vorname)"
-		    + " values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
-	private void uebertragung(ErstelleKunde form) throws ServletException {
+		    + " values (?, ?, ?, ?, ?, ?, ?, ?, ?)";}
+	private void uebertragung(ErstelleKundeBean form) throws ServletException {
 		String[] generatedKeys = new String[] {"Email"};	
 		
 		try (Connection con = ds.getConnection();
@@ -66,16 +72,30 @@ uebertragung(form);
 						generatedKeys)){
 
 				// Zugriff über Klasse java.sql.PreparedStatement
-				pstmt.setString(1, form.getEmail);
-				pstmt.setString(2, form.getNachname());
-				pstmt.setString(3, form.getUsername());
+				pstmt.setString(1, form.getEmail());
+				pstmt.setString(2, form.getGeschl());
+				pstmt.setString(3, form.getGebDatum());
 				pstmt.setString(4, form.getPasswort());
-				pstmt.setString(5, form.getEmail());
-				pstmt.setLong(6, form.getTelefon());
+				pstmt.setString(5, form.getPLZ());
+				pstmt.setString(6, form.getOrt());
+				pstmt.setLong(7, form.getHausNr());
+				pstmt.setString(8, form.getStr());
+				pstmt.setString(9, form.getVorname());
+				pstmt.setString(10, form.getFamName());
+				pstmt.setInt(11, form.getKdNr());
+				pstmt.setString(12, form.getPasswort());
 				pstmt.executeUpdate();
+		
 				
 				// Generierte(n) Schlüssel auslesen (funktioniert nur mit PreparedStatement)
-				
+				try (ResultSet rs = pstmt.getGeneratedKeys()) {
+					while (rs.next()) {
+						form.setKdNr(rs.getInt(1));
+					}
+				}
+			} catch (Exception ex) {
+				throw new ServletException(ex.getMessage());
+			}
 		}
 	
 	
