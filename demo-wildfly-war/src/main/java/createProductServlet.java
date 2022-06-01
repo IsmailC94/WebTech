@@ -23,7 +23,7 @@ import jakarta.servlet.http.HttpServletResponse;
 public class createProductServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-	@Resource(lookup = "java:jboss/datasources/ingoshop")
+	@Resource(lookup = "java:jboss/datasources/IngoShop")
 	private DataSource ds;
     /**
      * @see HttpServlet#HttpServlet()

@@ -22,11 +22,11 @@ import jakarta.servlet.http.HttpServletResponse;
  */
 
 
-@WebServlet("/ErstelleKunde")
+@WebServlet(name = "ErstelleKunde", urlPatterns = { "/ErstelleKunde" })
 public class ErstelleKunde extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	@Resource(lookup = "java:jboss/datasources/Ingoshop")
+	@Resource(lookup = "java:jboss/datasources/IngoShop")
 	private DataSource ds;
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -41,11 +41,11 @@ public class ErstelleKunde extends HttpServlet {
 		form.setGebDatum(request.getParameter("gebDatum"));
 		form.setPLZ(request.getParameter("plz"));
 		form.setOrt(request.getParameter("ort"));
-		form.setHausNr(Integer.valueOf("hausNr"));
+		//form.setHausNr(Integer.valueOf("hausNr"));
 		form.setStr(request.getParameter("strasse"));
 		form.setVorname(request.getParameter("vorname"));
 		form.setFamName(request.getParameter("nachname"));
-		form.setKdNr(Integer.valueOf("kundennummer"));
+		//form.setKdNr(Integer.valueOf("kundennummer"));
 		form.setPasswort(request.getParameter("password"));
 		
 
@@ -64,7 +64,7 @@ uebertragung(form);
 	String eingabe = " insert into users (Email, FamName, Geburtsdatum, Geschlecht, Hausnummer, Ort, PLZ, Straﬂe, Vorname)"
 		    + " values (?, ?, ?, ?, ?, ?, ?, ?, ?)";}
 	private void uebertragung(ErstelleKundeBean form) throws ServletException {
-		String[] generatedKeys = new String[] {"Email"};	
+		String[] generatedKeys = new String[] {};	
 		
 		try (Connection con = ds.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(
