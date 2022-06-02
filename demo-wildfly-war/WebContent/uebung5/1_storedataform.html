@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Daten in DB über JDBC speichern</title>
+	  <style>
+		/* Elemente positionieren und Formular ausrichten */
+		label {
+			min-width: 11em;
+			display: inline-block;
+			text-align: left;
+		}
+		input {
+			width: 20em;
+		}
+		
+		textarea {
+			width: 20em;
+			border: 1px solid black;
+		}
+		input[type="checkbox"], input[type="radio"] {
+			width: auto;
+		}
+		label {
+			vertical-align: top;
+		}
+		input[type="checkbox"], button[type="submit"] {
+			margin-left: 8em;
+		}
+		button {
+			width: 10em;
+		}
+		
+		/* Formular optisch stylen.		  *
+		 * Vorgehen: von innen nach außen */
+		fieldset {
+			width: 30em;
+			padding-top: 1.5em;
+			padding-left: 1.5em;
+			background: #e6eeff;
+			border: 1px solid #000330;
+			border-radius: 5px;
+		}
+		legend {
+			background: white;
+			padding: 0.2em;
+			border: 1px solid #000330;
+			border-radius: 5px;
+		}
+		
+		/* Interaktionen über Pseudoklassen */
+		input:hover, textarea:hover {
+			background: #fffff0;
+			border: 2px solid #efe816;
+			box-shadow: 0 0 10px rgba(0,0,0,0.2);
+		}
+		button:hover {
+			background: #c9c9c9;
+			border: 2px solid #6c6c6c;
+		}
+		button:active {
+			background: #8f8f8f;
+		}
+		
+
+		/* Damit Felder nicht zu dicht folgen */
+		form div { 
+			padding: 0.2em; 
+		}
+	  </style>
+	</head>
+	<body>
+		<h1>Daten in DB über JDBC speichern</h1>
+		<form method="post" action="../createservlet">
+			<fieldset><legend>Produktdaten</legend>
+			<div>
+				<label for="productname">Produktname:</label>
+				<input type="text" name="productname" id="productname" required/>
+			</div>
+			<div>
+				<label for="quantity">Menge:</label>
+				<input type="number" name="quantity" id="quantity" required/>
+			</div>
+			<div>
+				<label for="proddate">P.-Datum (yyyy-mm-dd):</label>
+				<input type="date" name="proddate" id="proddate" required/>
+			</div>
+			<div>
+				<label for="prodtime">P.-Zeit (hh:mm):</label>
+				<input type="time" name="prodtime" id="prodtime" required/>
+			</div>
+			<div>
+				<button type="submit" id="button">Daten speichern</button>
+			</div>
+			</fieldset>
+		</form>
+		<footer class="foot"><br>Design basiert auf: Wolf, Jürgen: HTML5 und CSS3, Das umfassende Handbuch, Bonn: Rheinwerk, 2015</footer>
+	</body>
+</html>

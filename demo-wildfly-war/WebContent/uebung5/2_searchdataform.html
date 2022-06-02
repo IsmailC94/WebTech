@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <meta charset="UTF-8">
+	  <title>Produkteinträge suchen</title>
+	  <style>
+		/* Elemente positionieren und Formular ausrichten */
+		label {
+			min-width: 6em;
+			display: inline-block;
+			text-align: left;
+		}
+		input {
+			width: 20em;
+		}
+		
+		label {
+			vertical-align: top;
+		}
+		button {
+			width: 10em;
+		}
+		
+		/* Formular optisch stylen.		  *
+		 * Vorgehen: von innen nach außen */
+		fieldset {
+			width: 30em;
+			padding-top: 1.5em;
+			padding-left: 1.5em;
+			background: #e6eeff;
+			border: 1px solid #000330;
+			border-radius: 5px;
+		}
+		legend {
+			background: white;
+			padding: 0.2em;
+			border: 1px solid #000330;
+			border-radius: 5px;
+		}
+		
+		/* Interaktionen über Pseudoklassen */
+		input:hover {
+			background: #fffff0;
+			border: 2px solid #efe816;
+			box-shadow: 0 0 10px rgba(0,0,0,0.2);
+		}
+		button:hover {
+			background: #c9c9c9;
+			border: 2px solid #6c6c6c;
+		}
+		button:active {
+			background: #8f8f8f;
+		}
+		
+
+		/* Damit Felder nicht zu dicht folgen */
+		form div { 
+			padding: 0.2em; 
+		}
+	  </style>
+	</head>
+	<body>
+		<h1>Produkteinträge suchen</h1>
+		<form id="myForm" method="post" action="../searchservlet">
+			<fieldset><legend>Produkteinträge suchen</legend>
+				<div>
+				  <label for="productname">Produktname:</label>
+				  <input type="text" name="productname" id="productname" placeholder="Produktname">
+				</div>
+				<div>
+				  <button name="submit" type="submit">Suche starten</button>
+				  <button name="reset" type="reset">Zurücksetzen</button>
+				</div>
+			</fieldset>
+		</form>
+		<footer class="foot"><br>Design basiert auf: Wolf, Jürgen: HTML5 und CSS3, Das umfassende Handbuch, Bonn: Rheinwerk, 2015</footer>
+	</body>
+</html>
