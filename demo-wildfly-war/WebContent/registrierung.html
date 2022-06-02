@@ -82,67 +82,67 @@
 
 
 	<h1 class="angaben">Ihre persönlichen Angaben</h1>
-	<form class="regForm" method="post">
-		<fieldset>
-			<legend>Registrierung</legend>
-
-			<div class="a_radio">
+	<form method="post" action="../registrationservlet">
+			<fieldset><legend>Registrierung</legend>
 			
-				<label for="r1"> Herr</label>
-				<input type="Radio" name="anrede" id="r1" value="Herr" required>
-				
-				<label for="r2">Frau</label>
-				<input type="Radio" name="anrede" id="r2" value="Frau" required>
-				
-				
-					</div>
-					
-					<div>
-					 <label for="vorname">Name:</label> 
-					 <input type="text" placeholder="Vorname eingeben" name="vorname"  id="vorname" size="30"  maxlength="40" required>
+			<div class="form_radio">
+				  <label>Geschlecht:</label>
+				  <input type="radio" name="anrede" id="male" value="Herr">
+				  <label for="male">Männlich</label>
+				  <input type="radio" name="anrede" id="female" value="Herr">
+				  <label for="female">Weiblich</label>
 			</div>
-			<div>
-				<label for="nachname">Nachname:</label> 
-				<input type="text" placeholder="Nachname eingeben"  name="nachname" id="nachname" size="30" maxlength="40" required>
-			</div>
-			<div>
-				<label for="adresse"> Adresse</label> <input type="text"
-					placeholder="Strasse und Hausnummer" name="adresse" id="adresse" size="30"
-					 maxlength="40" required>
-			</div>
-			<div>
-				<label for="plz">Postleizahl</label> <input type="text"
-					pattern="[0-9]{5}" title="Fünfstellige Postleizahl" size="30"
-					placeholder="PLZ" name="plz" id="plz" required />
-			</div>
-			<div>
-				<label for="ort"> Ort </label> <input type="text" placeholder="Ort"
-					name="ort" id="ort" size="30"  maxlength="40" required>
-			</div>
-			<div>
+			
 
-				<label for="email">E-Mail</label><input type="text"
-					placeholder="E-Mail adresse " name="email" id="email" size="30" 
-					maxlength="40" required>
-			</div>
 			<div>
-				<label for="benutzername">Benutzername</label><input type="text"
-					placeholder="Benutzername" name="benutzername" id="benutzername" size="30"
+				<label for="vorname">Vorname: </label>
+				<input type="text" name="vorname" id="vorname" required/>
+			</div>
+			
+			<div>
+				<label for="nachname">Nachname: </label>
+				<input type="text" name="nachname" id="nachname" required/>
+			</div>
+			
+			<div>
+				<label for="strasse">Straße: </label>
+				<input type="text" name="strasse" id="strasse" required/>
+			</div>
+			
+			<div>
+				<label for="plz">Postleitzahl: </label>
+				<input type="number" name="plz" id="plz" required/>
+			</div>
+			
+			<div>
+				<label for="ort">Wohnort: </label>
+				<input type="text" name="ort" id="ort" required/>
+			</div>
+			
+			<div>
+				<label>Benutzername</label>
+				<input type="text" placeholder="Benutzername" name="benutzername" id="benutzername" size="30"
 					 maxlength="40" required>
 			</div>
 
 			<div>
-				<label for="pwd"> Passwort</label> <input type="password" id="pwd"
-					name="pwd"  size="30"  maxlength="40" required><br>
-				<br>
-
+				<label>Passwort</label> 
+				<input type="password" placeholder="Passwort" id="passwort"
+					name="passwort"  size="30"  maxlength="40" required><br>
 			</div>
+			
 			<div>
-				<button name="absenden" type="submit">Absenden</button>
-				<button name="zurücksetzen" type="reset">Zurücksetzen</button>
+				<label>Passwort wiederholen</label> 
+				<input type="password" placeholder="Passwort wiederholen" id="passwortWiederholung"
+					name="passwortWiederholung"  size="30"  maxlength="40" required><br>
 			</div>
-		</fieldset>
-	</form>
+				
+			<div>
+				<button type="submit" id="button">Daten speichern</button>
+			</div>
+			</fieldset>
+		</form>
+	
 
 </body>
 
