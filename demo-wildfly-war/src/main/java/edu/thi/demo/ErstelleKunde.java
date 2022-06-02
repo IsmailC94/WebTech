@@ -8,7 +8,6 @@ import java.sql.ResultSet;
 
 import javax.sql.DataSource;
 
-import edu.thi.demo.ErstelleKundeBean;
 import jakarta.annotation.Resource;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -61,14 +60,14 @@ uebertragung(form);
 	}
 	// Dieser String wird in die DB eingefügt
 	private void persist(ErstelleKunde form) throws ServletException {
-	String eingabe = " insert into users (Email, FamName, Geburtsdatum, Geschlecht, Hausnummer, Ort, PLZ, Straße, Vorname)"
+	String eingabe = " insert into kunden (Email, FamName, Geburtsdatum, Geschlecht, Hausnummer, Ort, PLZ, Straße, Vorname, KundenNr)"
 		    + " values (?, ?, ?, ?, ?, ?, ?, ?, ?)";}
 	private void uebertragung(ErstelleKundeBean form) throws ServletException {
 		String[] generatedKeys = new String[] {"Email"};	
 		
 		try (Connection con = ds.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(
-						"INSERT INTO userdata (Vorname, Nachname, Username, Passwort, Email, Telefon) VALUES (?,?,?,?,?,?)", 
+						"INSERT INTO kunden (Vorname, Nachname, Username, Passwort, Email, Telefon) VALUES (?,?,?,?,?,?)", 
 						generatedKeys)){
 
 				// Zugriff über Klasse java.sql.PreparedStatement
