@@ -3,9 +3,6 @@ package beans;
 import java.io.Serializable;
 import java.util.Date;
 
-import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.Servlet;
-
 public class Kunde implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
@@ -13,7 +10,7 @@ public class Kunde implements Serializable {
 	private String passwort;
 	private String eMail;
 	private String geschlecht;
-	private java.sql.Date geburtsdatum;
+	private String geburtsdatum;
 	private String plz;
 	private String ort;
 	private String hausnummer;
@@ -22,6 +19,12 @@ public class Kunde implements Serializable {
 	private String FamName;
 	private int admin;
 	
+	public int getAdmin() {
+		return admin;
+	}
+	public void setAdmin(int admin) {
+		this.admin = admin;
+	}
 	public String getPasswort() {
 		return passwort;
 	}
@@ -40,10 +43,10 @@ public class Kunde implements Serializable {
 	public void setGeschlecht(String geschlecht) {
 		this.geschlecht = geschlecht;
 	}
-	public java.sql.Date getGeburtsdatum() {
+	public String getGeburtsdatum() {
 		return geburtsdatum;
 	}
-	public void setGeburtsdatum(java.sql.Date geburtsdatum) {
+	public void setGeburtsdatum(String geburtsdatum) {
 		this.geburtsdatum = geburtsdatum;
 	}
 	public String getPlz() {

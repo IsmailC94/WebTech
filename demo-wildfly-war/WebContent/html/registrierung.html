@@ -82,15 +82,15 @@
 
 
 	<h1 class="angaben">Ihre persönlichen Angaben</h1>
-	<form method="post" action="../registrationservlet" >
+	<form id="myform" method="post" action="../ErstelleKunde" accept-charset="utf-8" >
 		<fieldset>
 			<legend>Registrierung</legend>
 
 			<div class="a_radio">
 				<label for="r1"> Herr</label>
-				<input type="Radio" name="geschlecht" id="r1" value="Herr" required>			
+				<input type="Radio" name="geschlecht" id="r1" value="m" required>			
 				<label for="r2">Frau</label>
-				<input type="Radio" name="geschlecht" id="r2" value="Frau" required>
+				<input type="Radio" name="geschlecht" id="r2" value="w" required>
 			</div>
 					
 			<div>
@@ -127,24 +127,19 @@
 					maxlength="40" required>
 			</div>
 			<div>
-				<label for="geburtsdatum">P.-Datum (yyyy-mm-dd):</label>
+				<label for="geburtsdatum">P.-Datum (dd-mm-yyyy):</label>
 				<input type="date" name="geburtsdatum" id="geburtsdatum" required/>
 			</div>
 			<div>
-				<label for="benutzername">Benutzername</label><input type="text"
-					placeholder="Benutzername" name="benutzername" id="benutzername" size="30"
-					 maxlength="40" required>
-			</div>
-
-			<div>
 				<label for="passwort"> Passwort</label> <input type="password" id="pwd"
 					name="passwort"  size="30"  maxlength="40" required><br>
-				<br>
-
 			</div>
 			<div>
+				<label for="passwort"> Passwort wiederholen:</label> <input type="password" id="pwd"
+					name="passwort"  size="30"  maxlength="40" required><br>
+				</div>
+			<div>
 				<button name="absenden" type="submit" id="button">Absenden</button>
-				
 			</div>
 		</fieldset>
 	</form>

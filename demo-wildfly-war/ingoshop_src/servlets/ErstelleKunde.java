@@ -1,14 +1,14 @@
 package servlets;
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-
+//import java.util.Date;
 
 import javax.sql.DataSource;
 
 import beans.Kunde;
-
 import jakarta.annotation.Resource;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -20,7 +20,7 @@ import jakarta.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class CreateServlet
  */
-@WebServlet("/registrationservlet")
+@WebServlet("/ErstelleKunde")
 public class ErstelleKunde extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -44,6 +44,7 @@ public class ErstelleKunde extends HttpServlet {
 		form.setPlz(request.getParameter("plz")); 
 		form.setPasswort(request.getParameter("passwort"));
 		form.setGeschlecht(request.getParameter("geschlecht"));
+		form.setGeburtsdatum(request.getParameter("geburtsdatum"));
 		form.seteMail(request.getParameter("email"));
 	
 		
@@ -72,14 +73,12 @@ public class ErstelleKunde extends HttpServlet {
 				 	 pstmt.setString(3, form.getStrasse()); 
 				    pstmt.setString(4, form.getHausnummer()); 
 				    pstmt.setString(5, form.getOrt()); 
-				  
 				    pstmt.setString(6, form.getPlz());
-				   
 				    pstmt.setString(7, form.getPasswort());
 				    pstmt.setString(8, form.getGeschlecht());
 				    pstmt.setString(9, form.geteMail());
 				    pstmt.setString(9, form.geteMail());   
-				    pstmt.setDate(10, form.getGeburtsdatum());
+				    pstmt.setString(10, form.getGeburtsdatum());
 				    pstmt.setInt(11, 0);
 					pstmt.executeUpdate();
 					

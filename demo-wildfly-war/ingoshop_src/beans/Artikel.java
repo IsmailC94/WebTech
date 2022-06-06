@@ -38,7 +38,9 @@ public class Artikel implements Serializable {
 		return bildpfad;
 	}
 	
-	
+	public Long getId() {
+		return id;
+	}
 	
 	//setters
 	
