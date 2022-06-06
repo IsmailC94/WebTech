@@ -1,4 +1,5 @@
 package servlets;
+
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,7 +8,7 @@ import java.sql.ResultSet;
 
 import javax.sql.DataSource;
 
-import beans.Artikel;
+import beans.Pordukte;
 
 import jakarta.annotation.Resource;
 import jakarta.servlet.RequestDispatcher;
@@ -20,8 +21,8 @@ import jakarta.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class CreateServlet
  */
-@WebServlet("/produkthinzufuegenservlet")
-public class ArtikelHinzufuegen extends HttpServlet {
+@WebServlet("/ErstelleProdukt")
+public class ErstelleProdukt extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@Resource(lookup="java:jboss/datasources/IngoShop")
@@ -34,9 +35,12 @@ public class ArtikelHinzufuegen extends HttpServlet {
 			throws ServletException, IOException {
 	
 		request.setCharacterEncoding("UTF-8"); // 
-		Artikel form = new Artikel();
+		Pordukte form = new Pordukte();
 
 		form.setProduktname(request.getParameter("produktname"));
+		form.setArtikelgruppe(Integer.getInteger("artGrp"));
+		form.setMenge(Integer.getInteger("menge"));
+		form.setProduktpreis(Double.valueOf("preis"));
 		
 		
 		
@@ -45,22 +49,25 @@ public class ArtikelHinzufuegen extends HttpServlet {
 		request.setAttribute("form", form);
 
 		// Weiterleiten an JSP
-		final RequestDispatcher dispatcher = request.getRequestDispatcher("html/1_outputdataRegistration.jsp");
+		final RequestDispatcher dispatcher = request.getRequestDispatcher("html/1_outputdataProduct.jsp");
 		dispatcher.forward(request, response);
 	}
 	
 	
-	private void persist(Artikel form) throws ServletException {
+	private void persist(Pordukte form) throws ServletException {
 		
 		   String[] generatedKeys = new String[] {"id"};
 			
 			try (Connection con = ds.getConnection();
 					PreparedStatement pstmt = con.prepareStatement(
-							"INSERT INTO Kunden (Produkt) VALUES (?)", generatedKeys
+							"INSERT INTO produkte (Menge, Produktpreis, Produktname, ArtikelGrp) VALUES (?,?,?,?)", generatedKeys
 							)){
                         
 					// Zugriff über Klasse java.sql.PreparedStatement
-				 	pstmt.setString(1, form.getProduktname());	
+					pstmt.setInt(1, form.getMenge());
+					pstmt.setDouble(2, form.getProduktpreis());
+				 	pstmt.setString(3, form.getProduktname());	
+				 	pstmt.setInt(4, form.getArtikelgruppe());
 				 	
 					pstmt.executeUpdate();
 					

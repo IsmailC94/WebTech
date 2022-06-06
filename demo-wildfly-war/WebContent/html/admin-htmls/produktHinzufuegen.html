@@ -125,52 +125,59 @@
           	 <p>
           	
           	 </p>
-          <form method="post" accept-charset="utf-8" >
+          <form method="post" action="../ErstelleProdukt" accept-charset="utf-8" >
+           <fieldset>
+           <div>
            <button class = "buttondesign"  type="submit"> Hinzufügen</button>
-           <ul>
+           </div>
            
-         <br>  <li><label for="artikelname">Name</label>
-             <input type="text" name="artikelname"   required>
-         </li></br>
+           <div>
+         <label for="artikelname">Name</label>
+             <input type="text" name="produktname" id="produktname"  required/>
+         </div>
          
-          <br>  <li><label for="artikelmenge">Menge</label>
-             <input type="text" name="artikelmenge"   required>
-         </li></br>
+         <div>
+          <label for="artikelmenge">Menge</label>
+             <input type="text" pattern="[0-9]{5,1}" name="menge"  id="menge" required/>
+         <div>
          
-         <br>  <li><label for="cars">Artikelgruppe:</label>
-
-<select name="cars" id="cars">
+         <label for="gruppe">Artikelgruppe:</label>
+	<div>	
+<select name="artGrp" id="artGrp">
   <option value="4">Frauen - Sport</option>
-  <option value="7">Frauen - Accessoires</option>
+  <option value="7">Frauen - Accessories</option>
   <option value="10">Frauen - Premium</option>
   <option value="13">Frauen - Beauty</option>
   <option value="16">Frauen - Sale</option>
   
   <option value="5">Männer - Sport</option>
-  <option value="8">Männer - Accessoires</option>
+  <option value="8">Männer - Accessories</option>
   <option value="11">Männer - Premium</option>
   <option value="14">Männer - Beauty</option>
   <option value="17">Männer - Sale</option>
   
   <option value="6">Kinder - Sport</option>
-  <option value="9">Kinder - Accessoires</option>
+  <option value="9">Kinder - Accessories</option>
   <option value="12">Kinder - Premium</option>
   <option value="15">Kinder - Beauty</option>
   <option value="18">Kinder - Sale</option>
   
 </select>
-         </li></br>
+</div>
          
          
-         <br>  <li><label for="artikelpreis">Preis</label>
-             <input type="text" name="artikelpreis"   required>
-         </li></br>
+         <div>
+          <label for="artikelpreis">Preis</label>
+             <input type="text" name="preis" id="preis" required/>
          
-           </ul>
+         </div>
+         
+           
+           </fieldset>
      </form>
-             </div>
+             
                 
-
+</div>
 
 </table>  
 <div class="list-unstyled-links">
