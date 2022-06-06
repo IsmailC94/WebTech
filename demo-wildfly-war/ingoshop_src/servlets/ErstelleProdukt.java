@@ -60,22 +60,16 @@ public class ErstelleProdukt extends HttpServlet {
 			
 			try (Connection con = ds.getConnection();
 					PreparedStatement pstmt = con.prepareStatement(
-							"INSERT INTO produkte (Menge, Produktpreis, Produktname, ArtikelGrp) VALUES (?,?,?,?)", generatedKeys
+							"INSERT INTO produkte (AritkelGrp, Produktname, Produktpreis, Menge) VALUES (?,?,?,?)", generatedKeys
 							)){
                         
 					// Zugriff über Klasse java.sql.PreparedStatement
-					pstmt.setInt(1, form.getMenge());
-					pstmt.setDouble(2, form.getProduktpreis());
-				 	pstmt.setString(3, form.getProduktname());	
-				 	pstmt.setInt(4, form.getArtikelgruppe());
-				 	
+					pstmt.setInt(1, form.getArtikelgruppe());
+					pstmt.setString(2, form.getProduktname());
+					pstmt.setDouble(3, form.getProduktpreis());			 	
+				 	pstmt.setInt(4, form.getMenge());				 	
 					pstmt.executeUpdate();
 					
-					
-					
-					
-					
-	
 					ResultSet rs = pstmt.getGeneratedKeys();				
 						while (rs.next()) {
 							form.setId(rs.getLong(1));

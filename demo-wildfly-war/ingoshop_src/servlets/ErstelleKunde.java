@@ -81,11 +81,6 @@ public class ErstelleKunde extends HttpServlet {
 				    pstmt.setString(10, form.getGeburtsdatum());
 				    pstmt.setInt(11, 0);
 					pstmt.executeUpdate();
-					
-					
-					
-					
-					
 	
 					ResultSet rs = pstmt.getGeneratedKeys();				
 						while (rs.next()) {
