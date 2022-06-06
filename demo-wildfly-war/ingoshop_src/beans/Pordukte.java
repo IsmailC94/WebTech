@@ -5,17 +5,17 @@ import java.io.Serializable;
 public class Pordukte implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
-	private int artikelgruppe;
+	private String artikelgruppe;
 	private String produktname;
-	private Double produktpreis;
-	private int menge;
+	private String produktpreis;
+	private String menge;
 	private String bildpfad;
 	private Long id;
 	
-	public int getArtikelgruppe() {
+	public String getArtikelgruppe() {
 		return artikelgruppe;
 	}
-	public void setArtikelgruppe(int artikelgruppe) {
+	public void setArtikelgruppe(String artikelgruppe) {
 		this.artikelgruppe = artikelgruppe;
 	}
 	public String getProduktname() {
@@ -24,16 +24,16 @@ public class Pordukte implements Serializable {
 	public void setProduktname(String produktname) {
 		this.produktname = produktname;
 	}
-	public Double getProduktpreis() {
+	public String getProduktpreis() {
 		return produktpreis;
 	}
-	public void setProduktpreis(Double produktpreis) {
+	public void setProduktpreis(String produktpreis) {
 		this.produktpreis = produktpreis;
 	}
-	public int getMenge() {
+	public String getMenge() {
 		return menge;
 	}
-	public void setMenge(int menge) {
+	public void setMenge(String menge) {
 		this.menge = menge;
 	}
 	public String getBildpfad() {
