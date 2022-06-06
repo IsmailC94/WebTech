@@ -1,5 +1,5 @@
-/* DROP-DOWN-MENU spÃ¤ter noch mit JAVASCRIPT MACHEN!!!!!!!!!!!!! */
-/* media queries spÃ¤ter noch mit Java Script machen!! */
+
+
 
 /* === GLOBAL === */
 
@@ -34,7 +34,7 @@ body {
   position:center;
 }
 
-/* The container <div> - needed to position the dropdown content */
+
 .dropdown {
   position: relative;
   display: inline-block;
@@ -79,12 +79,20 @@ body {
   /* font-weight: bold;
   font-size: 1.1rem; */
 }
-.list-unstyled-links{
-	osition: fixed;
-    bottom: 0;
-    width: 100%;
-	
+.header-nav .list-unstyled-links{
+position:absolute;
+top:1250px;
+
+  left: 850px;
 }
+
+.header-nav .list-unstyled-links > ul > li {
+	
+ 
+  
+ 
+}
+
 /* === Navigationsleiste Vorbereitung === */
 
 /* Alle li-Elementen in den ul's bekommen inline-block; */

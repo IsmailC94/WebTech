@@ -13,8 +13,8 @@
 	rel="stylesheet">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel=stylesheet href="login.css">
-<link rel=stylesheet href="styles.css">
+<link rel=stylesheet href="../css/login.css">
+<link rel=stylesheet href="../css/styles.css">
 </head>
 
 
@@ -82,15 +82,15 @@
 
 
 	<h1 class="angaben">Ihre persönlichen Angaben</h1>
-	<form class="regForm" method="post">
+	<form method="post" action="../registrationservlet" >
 		<fieldset>
 			<legend>Registrierung</legend>
 
 			<div class="a_radio">
 				<label for="r1"> Herr</label>
-				<input type="Radio" name="anrede" id="r1" value="Herr" required>			
+				<input type="Radio" name="geschlecht" id="r1" value="Herr" required>			
 				<label for="r2">Frau</label>
-				<input type="Radio" name="anrede" id="r2" value="Frau" required>
+				<input type="Radio" name="geschlecht" id="r2" value="Frau" required>
 			</div>
 					
 			<div>
@@ -99,11 +99,16 @@
 			</div>
 			<div>
 				<label for="nachname">Nachname:</label> 
-				<input type="text" placeholder="Nachname eingeben"  name="nachname" id="nachname" size="30" maxlength="40" required>
+				<input type="text" placeholder="Nachname eingeben"  name="FamName" id="nachname" size="30" maxlength="40" required>
 			</div>
 			<div>
-				<label for="adresse"> Adresse</label> <input type="text"
-					placeholder="Strasse und Hausnummer" name="adresse" id="adresse" size="30"
+				<label for="adresse"> Straße</label> <input type="text"
+					placeholder="Strasse" name="strasse" id="strasse" size="30"
+					 maxlength="40" required>
+			</div>
+			<div>
+				<label for="hausnummer"> Hausnummer</label> <input type="text"
+					placeholder="Hausnummer" name="hausnummer" id="hausnummer" size="30"
 					 maxlength="40" required>
 			</div>
 			<div>
@@ -122,20 +127,24 @@
 					maxlength="40" required>
 			</div>
 			<div>
+				<label for="geburtsdatum">P.-Datum (yyyy-mm-dd):</label>
+				<input type="date" name="geburtsdatum" id="geburtsdatum" required/>
+			</div>
+			<div>
 				<label for="benutzername">Benutzername</label><input type="text"
 					placeholder="Benutzername" name="benutzername" id="benutzername" size="30"
 					 maxlength="40" required>
 			</div>
 
 			<div>
-				<label for="pwd"> Passwort</label> <input type="password" id="pwd"
-					name="pwd"  size="30"  maxlength="40" required><br>
+				<label for="passwort"> Passwort</label> <input type="password" id="pwd"
+					name="passwort"  size="30"  maxlength="40" required><br>
 				<br>
 
 			</div>
 			<div>
-				<button name="absenden" type="submit">Absenden</button>
-				<button name="zurücksetzen" type="reset">Zurücksetzen</button>
+				<button name="absenden" type="submit" id="button">Absenden</button>
+				
 			</div>
 		</fieldset>
 	</form>

@@ -1,5 +1,4 @@
-package edu.thi.servlets;
-
+package servlets;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,7 +7,8 @@ import java.sql.ResultSet;
 
 import javax.sql.DataSource;
 
-import edu.thi.uebung5.bean.Kunde;
+import beans.Kunde;
+
 import jakarta.annotation.Resource;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -20,11 +20,11 @@ import jakarta.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class CreateServlet
  */
-@WebServlet(name = "registrationservlet", urlPatterns = { "/registrationservlet" })
-public class RegistrationServlet extends HttpServlet {
+@WebServlet("/registrationservlet")
+public class ErstelleKunde extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	@Resource(lookup="java:jboss/datasources/MySqlThidbDS2")
+	@Resource(lookup="java:jboss/datasources/IngoShop")
 	private DataSource ds;
 
 	/**
@@ -36,15 +36,16 @@ public class RegistrationServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8"); // 
 		Kunde form = new Kunde();
 
-		form.setAnrede(request.getParameter("anrede"));
+		form.setFamName(request.getParameter("FamName"));
 		form.setVorname(request.getParameter("vorname"));
-		form.setNachname(request.getParameter("nachname"));
 		form.setStrasse(request.getParameter("strasse")); 
-		form.setPlz(Integer.valueOf(request.getParameter("plz")));
+		form.setHausnummer(request.getParameter("hausnummer")); 
 		form.setOrt(request.getParameter("ort"));
-		form.setBenutzername(request.getParameter("benutzername"));
+		form.setPlz(request.getParameter("plz")); 
 		form.setPasswort(request.getParameter("passwort"));
-		
+		form.setGeschlecht(request.getParameter("geschlecht"));
+		form.seteMail(request.getParameter("email"));
+		//form.setGeburtsdatum(request.getParameter("geburtsdatum"));
 		
 		//später passwort vergleichen mit JavaScript - siehe code unten
 //		<script>
@@ -71,7 +72,7 @@ public class RegistrationServlet extends HttpServlet {
 		request.setAttribute("form", form);
 
 		// Weiterleiten an JSP
-		final RequestDispatcher dispatcher = request.getRequestDispatcher("uebung5/1_outputdataRegistration.jsp");
+		final RequestDispatcher dispatcher = request.getRequestDispatcher("html/1_outputdataRegistration.jsp");
 		dispatcher.forward(request, response);
 	}
 	
@@ -82,19 +83,29 @@ public class RegistrationServlet extends HttpServlet {
 			
 			try (Connection con = ds.getConnection();
 					PreparedStatement pstmt = con.prepareStatement(
-							"INSERT INTO customers (anrede, vorname,nachname,strasse, plz, ort, benutzername, passwort) VALUES (?,?,?,?,?,?,?,?)", generatedKeys
+							"INSERT INTO Kunden (FamName, Vorname, Straße, Hausnummer, Ort, PLZ, Passwort, geschlecht, eMail, Geburtsdatum, admin) VALUES (?,?,?,?,?,?,?,?,?,?,?)", generatedKeys
 							)){
-
+                        
 					// Zugriff über Klasse java.sql.PreparedStatement
-					pstmt.setString(1, form.getAnrede());
+				 	pstmt.setString(1, form.getFamName());	
 				 	pstmt.setString(2, form.getVorname());
-				    pstmt.setString(3, form.getNachname());
-				    pstmt.setString(4, form.getStrasse()); 
-				    pstmt.setInt(5, form.getPlz());
-				    pstmt.setString(6, form.getOrt());
-				    pstmt.setString(7, form.getBenutzername());
-				    pstmt.setString(8, form.getPasswort());
+				 	 pstmt.setString(3, form.getStrasse()); 
+				    pstmt.setString(4, form.getHausnummer()); 
+				    pstmt.setString(5, form.getOrt()); 
+				  
+				    pstmt.setString(6, form.getPlz());
+				   
+				    pstmt.setString(7, form.getPasswort());
+				    pstmt.setString(8, form.getGeschlecht());
+				    pstmt.setString(9, form.geteMail());
+				    pstmt.setString(9, form.geteMail());   
+				    pstmt.setDate(10, form.getGeburtsdatum());
+				    pstmt.setInt(11, 0);
 					pstmt.executeUpdate();
+					
+					
+					
+					
 					
 	
 					ResultSet rs = pstmt.getGeneratedKeys();				
