@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 
 import javax.sql.DataSource;
 
-import beans.Kunde;
+import beans.Artikel;
 
 import jakarta.annotation.Resource;
 import jakarta.servlet.RequestDispatcher;
@@ -20,8 +20,8 @@ import jakarta.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class CreateServlet
  */
-@WebServlet("/registrationservlet")
-public class ErstelleKunde extends HttpServlet {
+@WebServlet("/produkthinzufuegenservlet")
+public class ArtikelHinzufuegen extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@Resource(lookup="java:jboss/datasources/IngoShop")
@@ -34,18 +34,11 @@ public class ErstelleKunde extends HttpServlet {
 			throws ServletException, IOException {
 	
 		request.setCharacterEncoding("UTF-8"); // 
-		Kunde form = new Kunde();
+		Artikel form = new Artikel();
 
-		form.setFamName(request.getParameter("FamName"));
-		form.setVorname(request.getParameter("vorname"));
-		form.setStrasse(request.getParameter("strasse")); 
-		form.setHausnummer(request.getParameter("hausnummer")); 
-		form.setOrt(request.getParameter("ort"));
-		form.setPlz(request.getParameter("plz")); 
-		form.setPasswort(request.getParameter("passwort"));
-		form.setGeschlecht(request.getParameter("geschlecht"));
-		form.seteMail(request.getParameter("email"));
-	
+		form.setProduktname(request.getParameter("produktname"));
+		
+		
 		
 		// Scope "Request"
 		persist(form);
@@ -57,30 +50,18 @@ public class ErstelleKunde extends HttpServlet {
 	}
 	
 	
-	private void persist(Kunde form) throws ServletException {
+	private void persist(Artikel form) throws ServletException {
 		
 		   String[] generatedKeys = new String[] {"id"};
 			
 			try (Connection con = ds.getConnection();
 					PreparedStatement pstmt = con.prepareStatement(
-							"INSERT INTO Kunden (FamName, Vorname, Straße, Hausnummer, Ort, PLZ, Passwort, geschlecht, eMail, Geburtsdatum, admin) VALUES (?,?,?,?,?,?,?,?,?,?,?)", generatedKeys
+							"INSERT INTO Kunden (Produkt) VALUES (?)", generatedKeys
 							)){
                         
 					// Zugriff über Klasse java.sql.PreparedStatement
-				 	pstmt.setString(1, form.getFamName());	
-				 	pstmt.setString(2, form.getVorname());
-				 	 pstmt.setString(3, form.getStrasse()); 
-				    pstmt.setString(4, form.getHausnummer()); 
-				    pstmt.setString(5, form.getOrt()); 
-				  
-				    pstmt.setString(6, form.getPlz());
-				   
-				    pstmt.setString(7, form.getPasswort());
-				    pstmt.setString(8, form.getGeschlecht());
-				    pstmt.setString(9, form.geteMail());
-				    pstmt.setString(9, form.geteMail());   
-				    pstmt.setDate(10, form.getGeburtsdatum());
-				    pstmt.setInt(11, 0);
+				 	pstmt.setString(1, form.getProduktname());	
+				 	
 					pstmt.executeUpdate();
 					
 					
