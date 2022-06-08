@@ -5,11 +5,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-
 import javax.sql.DataSource;
 
 import beans.Pordukte;
-
 import jakarta.annotation.Resource;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -17,6 +15,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.Part;
 
 /**
  * Servlet implementation class CreateServlet
@@ -42,6 +41,16 @@ public class ErstelleProdukt extends HttpServlet {
 		form.setMenge(request.getParameter("menge"));
 		form.setProduktpreis(request.getParameter("preis"));
 		
+		Part filePart = request.getPart("bildpfad");
+		String fileName = filePart.getSubmittedFileName();
+		String pfad = "C:\\upload\\"+fileName;
+		
+		for (Part part:request.getParts()) {
+			part.write(pfad);
+		}
+		
+		form.setBildpfad(pfad);
+		
 		
 		
 		// Scope "Request"
@@ -60,14 +69,15 @@ public class ErstelleProdukt extends HttpServlet {
 			
 			try (Connection con = ds.getConnection();
 					PreparedStatement pstmt = con.prepareStatement(
-							"INSERT INTO Produkte (ArtikelGrp, Produktname, Produktpreis, Menge) VALUES (?,?,?,?)", generatedKeys
+							"INSERT INTO Produkte (ArtikelGrp, Produktname, Produktpreis, Menge, bildpfad) VALUES (?,?,?,?,?)", generatedKeys
 							)){
                         
 					// Zugriff über Klasse java.sql.PreparedStatement
 					pstmt.setString(1, form.getArtikelgruppe());
 					pstmt.setString(2, form.getProduktname());
 					pstmt.setString(3, form.getProduktpreis());			 	
-				 	pstmt.setString(4, form.getMenge());				 	
+				 	pstmt.setString(4, form.getMenge());
+				 	pstmt.setString(5, form.getBildpfad());
 					pstmt.executeUpdate();
 					
 					ResultSet rs = pstmt.getGeneratedKeys();				
